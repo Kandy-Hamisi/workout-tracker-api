@@ -17,6 +17,7 @@ export const db = drizzle({
 });
 
 export const checkDatabaseConnection = async (): Promise<void> => {
+  console.log("checking database connection");
   await pool.query("SELECT 1");
 };
 
