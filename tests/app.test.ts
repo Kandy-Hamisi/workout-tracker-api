@@ -41,12 +41,19 @@ describe("GET /health", () => {
   });
 });
 
-// ensure that a non existent endpoint returns a 404
-describe("POST /health", () => {
-  it("should return HTTP status 404", async () => {
+describe("Unknown routes", () => {
+  it("should return a structured 404 response", async () => {
+    const response = await request(app).get("/does-not-exist");
+
+    expect(response.status).toBe(404);
+    expect(response.body.success).toBe(false);
+    expect(response.body.error.code).toBe("ROUTE_NOT_FOUND");
+  });
+
+  it("should handle unsupported HTTP methods", async () => {
     const response = await request(app).post("/health");
 
-    //     expect this unknown endpoint to return 404
     expect(response.status).toBe(404);
+    expect(response.body.error.code).toBe("ROUTE_NOT_FOUND");
   });
 });
