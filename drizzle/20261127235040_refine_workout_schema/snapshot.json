@@ -1,0 +1,141 @@
+{
+  "type": "diff",
+  "version": "10",
+  "dialect": "postgres",
+  "id": "1ed4438b-84c6-480e-bd96-7052271c2b5b",
+  "prevIds": [
+    "829bc401-7d5b-4fcd-b06d-c14a3c10cdfc"
+  ],
+  "footprints": [
+    {
+      "statementType": "alter_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "tracking_type"
+      ],
+      "writes": [
+        "s|enum|public.tracking_type"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "recreate_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "exercise_category"
+      ],
+      "writes": [
+        "s|enum|public.exercise_category",
+        "n|enum|public.exercise_category",
+        "e|enum|public.exercise_category",
+        "n|type|public.exercise_category",
+        "s|colprop|public.exercises.category.type",
+        "s|colprop|public.exercises.category.default"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|tbl|public.exercises",
+        "n|sch|public",
+        "n|col|public.exercises.category"
+      ],
+      "sqlHash": "40081357a6a88c8c"
+    },
+    {
+      "statementType": "recreate_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "set_type"
+      ],
+      "writes": [
+        "s|enum|public.set_type",
+        "n|enum|public.set_type",
+        "e|enum|public.set_type",
+        "n|type|public.set_type",
+        "s|colprop|public.workout_sets.set_type.type",
+        "s|colprop|public.workout_sets.set_type.default"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|tbl|public.workout_sets",
+        "n|sch|public",
+        "n|col|public.workout_sets.set_type"
+      ],
+      "sqlHash": "e38785a6dc5d277a"
+    },
+    {
+      "statementType": "alter_column",
+      "statementTarget": [
+        "column",
+        "public",
+        "workout_sets",
+        "is_completed"
+      ],
+      "writes": [
+        "s|colprop|public.workout_sets.is_completed.notNull"
+      ],
+      "reads": [
+        "n|tbl|public.workout_sets",
+        "n|sch|public",
+        "n|col|public.workout_sets.is_completed"
+      ],
+      "sqlHash": "3c3565951cae55e3"
+    }
+  ],
+  "deltas": [
+    {
+      "op": "alter",
+      "key": "enums\u0000[\"public\",\"exercise_category\"]",
+      "set": {
+        "values": [
+          "strength",
+          "cardio",
+          "flexibility",
+          "mobility",
+          "plyometrics"
+        ]
+      }
+    },
+    {
+      "op": "alter",
+      "key": "enums\u0000[\"public\",\"set_type\"]",
+      "set": {
+        "values": [
+          "warmup",
+          "working",
+          "cooldown",
+          "dropset"
+        ]
+      }
+    },
+    {
+      "op": "alter",
+      "key": "enums\u0000[\"public\",\"tracking_type\"]",
+      "set": {
+        "values": [
+          "weighted",
+          "bodyweight",
+          "weighted_bodyweight",
+          "assisted_bodyweight",
+          "duration",
+          "distance_duration",
+          "repetitions_duration",
+          "repetitions",
+          "weight_duration",
+          "weight_distance"
+        ]
+      }
+    },
+    {
+      "op": "alter",
+      "key": "columns\u0000[\"public\",\"workout_sets\",\"is_completed\"]",
+      "set": {
+        "notNull": true
+      }
+    }
+  ]
+}

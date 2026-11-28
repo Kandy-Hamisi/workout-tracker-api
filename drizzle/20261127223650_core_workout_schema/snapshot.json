@@ -1,0 +1,1742 @@
+{
+  "type": "diff",
+  "version": "10",
+  "dialect": "postgres",
+  "id": "829bc401-7d5b-4fcd-b06d-c14a3c10cdfc",
+  "prevIds": [
+    "90e2043f-1487-4ec8-a19e-7317d5ac4d8a"
+  ],
+  "footprints": [
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "equipment"
+      ],
+      "writes": [
+        "s|enum|public.equipment",
+        "n|enum|public.equipment",
+        "e|enum|public.equipment",
+        "n|type|public.equipment"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "exercise_category"
+      ],
+      "writes": [
+        "s|enum|public.exercise_category",
+        "n|enum|public.exercise_category",
+        "e|enum|public.exercise_category",
+        "n|type|public.exercise_category"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "muscle_involvement"
+      ],
+      "writes": [
+        "s|enum|public.muscle_involvement",
+        "n|enum|public.muscle_involvement",
+        "e|enum|public.muscle_involvement",
+        "n|type|public.muscle_involvement"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "set_type"
+      ],
+      "writes": [
+        "s|enum|public.set_type",
+        "n|enum|public.set_type",
+        "e|enum|public.set_type",
+        "n|type|public.set_type"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "tracking_type"
+      ],
+      "writes": [
+        "s|enum|public.tracking_type",
+        "n|enum|public.tracking_type",
+        "e|enum|public.tracking_type",
+        "n|type|public.tracking_type"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "weight_unit"
+      ],
+      "writes": [
+        "s|enum|public.weight_unit",
+        "n|enum|public.weight_unit",
+        "e|enum|public.weight_unit",
+        "n|type|public.weight_unit"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "workout_status"
+      ],
+      "writes": [
+        "s|enum|public.workout_status",
+        "n|enum|public.workout_status",
+        "e|enum|public.workout_status",
+        "n|type|public.workout_status"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "exercises"
+      ],
+      "writes": [
+        "s|tbl|public.exercises",
+        "n|tbl|public.exercises",
+        "e|tbl|public.exercises",
+        "n|rel|public.exercises",
+        "n|type|public.exercises",
+        "n|rel|public.exercises_pkey"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.exercise_category",
+        "n|enum|public.tracking_type",
+        "n|enum|public.equipment"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "workouts"
+      ],
+      "writes": [
+        "s|tbl|public.workouts",
+        "n|tbl|public.workouts",
+        "e|tbl|public.workouts",
+        "n|rel|public.workouts",
+        "n|type|public.workouts",
+        "n|rel|public.workouts_pkey"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.workout_status"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "workout_exercises"
+      ],
+      "writes": [
+        "s|tbl|public.workout_exercises",
+        "n|tbl|public.workout_exercises",
+        "e|tbl|public.workout_exercises",
+        "n|rel|public.workout_exercises",
+        "n|type|public.workout_exercises",
+        "n|rel|public.workout_exercises_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "workout_sets"
+      ],
+      "writes": [
+        "s|tbl|public.workout_sets",
+        "n|tbl|public.workout_sets",
+        "e|tbl|public.workout_sets",
+        "n|rel|public.workout_sets",
+        "n|type|public.workout_sets",
+        "n|rel|public.workout_sets_pkey"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.set_type"
+      ]
+    },
+    {
+      "statementType": "add_column",
+      "statementTarget": [
+        "column",
+        "public",
+        "users",
+        "preferred_weight_unit"
+      ],
+      "writes": [
+        "s|col|public.users.preferred_weight_unit",
+        "n|col|public.users.preferred_weight_unit",
+        "e|col|public.users.preferred_weight_unit"
+      ],
+      "reads": [
+        "n|tbl|public.users",
+        "n|sch|public",
+        "n|enum|public.weight_unit"
+      ]
+    },
+    {
+      "statementType": "alter_column",
+      "statementTarget": [
+        "column",
+        "public",
+        "users",
+        "updated_at"
+      ],
+      "writes": [
+        "s|colprop|public.users.updated_at.notNull"
+      ],
+      "reads": [
+        "n|tbl|public.users",
+        "n|sch|public",
+        "n|col|public.users.updated_at"
+      ],
+      "sqlHash": "ad0f5100c8c4e90e"
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "exercises",
+        "exercise_slug_unique"
+      ],
+      "writes": [
+        "s|idx|public.exercise_slug_unique",
+        "n|idx|public.exercise_slug_unique",
+        "e|idx|public.exercise_slug_unique",
+        "n|rel|public.exercise_slug_unique"
+      ],
+      "reads": [
+        "n|tbl|public.exercises",
+        "n|sch|public",
+        "n|col|public.exercises.slug"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "exercises",
+        "exercise_category_idx"
+      ],
+      "writes": [
+        "s|idx|public.exercise_category_idx",
+        "n|idx|public.exercise_category_idx",
+        "e|idx|public.exercise_category_idx",
+        "n|rel|public.exercise_category_idx"
+      ],
+      "reads": [
+        "n|tbl|public.exercises",
+        "n|sch|public",
+        "n|col|public.exercises.category"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "exercises",
+        "exercise_equipment_idx"
+      ],
+      "writes": [
+        "s|idx|public.exercise_equipment_idx",
+        "n|idx|public.exercise_equipment_idx",
+        "e|idx|public.exercise_equipment_idx",
+        "n|rel|public.exercise_equipment_idx"
+      ],
+      "reads": [
+        "n|tbl|public.exercises",
+        "n|sch|public",
+        "n|col|public.exercises.equipment"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "workouts",
+        "workouts_user_started_idx"
+      ],
+      "writes": [
+        "s|idx|public.workouts_user_started_idx",
+        "n|idx|public.workouts_user_started_idx",
+        "e|idx|public.workouts_user_started_idx",
+        "n|rel|public.workouts_user_started_idx"
+      ],
+      "reads": [
+        "n|tbl|public.workouts",
+        "n|sch|public",
+        "n|col|public.workouts.user_id",
+        "n|col|public.workouts.started_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "workout_exercises",
+        "workout_exercises_position_unique"
+      ],
+      "writes": [
+        "s|idx|public.workout_exercises_position_unique",
+        "n|idx|public.workout_exercises_position_unique",
+        "e|idx|public.workout_exercises_position_unique",
+        "n|rel|public.workout_exercises_position_unique"
+      ],
+      "reads": [
+        "n|tbl|public.workout_exercises",
+        "n|sch|public",
+        "n|col|public.workout_exercises.workout_id",
+        "n|col|public.workout_exercises.position"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "workout_exercises",
+        "workout_exercises_exercise_idx"
+      ],
+      "writes": [
+        "s|idx|public.workout_exercises_exercise_idx",
+        "n|idx|public.workout_exercises_exercise_idx",
+        "e|idx|public.workout_exercises_exercise_idx",
+        "n|rel|public.workout_exercises_exercise_idx"
+      ],
+      "reads": [
+        "n|tbl|public.workout_exercises",
+        "n|sch|public",
+        "n|col|public.workout_exercises.exercise_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "workout_sets",
+        "workout_sets_number_unique"
+      ],
+      "writes": [
+        "s|idx|public.workout_sets_number_unique",
+        "n|idx|public.workout_sets_number_unique",
+        "e|idx|public.workout_sets_number_unique",
+        "n|rel|public.workout_sets_number_unique"
+      ],
+      "reads": [
+        "n|tbl|public.workout_sets",
+        "n|sch|public",
+        "n|col|public.workout_sets.workout_exercise_id",
+        "n|col|public.workout_sets.set_number"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "workouts"
+      ],
+      "writes": [
+        "s|fk|public.workouts.workouts_user_id_users_id_fkey",
+        "n|fk|public.workouts.workouts_user_id_users_id_fkey",
+        "e|fk|public.workouts.workouts_user_id_users_id_fkey",
+        "n|con|public.workouts.workouts_user_id_users_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.workouts",
+        "n|sch|public",
+        "n|tbl|public.users",
+        "n|sch|public",
+        "n|col|public.workouts.user_id",
+        "n|col|public.users.id",
+        "e|uniqueness|public.users.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "workout_exercises"
+      ],
+      "writes": [
+        "s|fk|public.workout_exercises.workout_exercises_workout_id_workouts_id_fkey",
+        "n|fk|public.workout_exercises.workout_exercises_workout_id_workouts_id_fkey",
+        "e|fk|public.workout_exercises.workout_exercises_workout_id_workouts_id_fkey",
+        "n|con|public.workout_exercises.workout_exercises_workout_id_workouts_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.workout_exercises",
+        "n|sch|public",
+        "n|tbl|public.workouts",
+        "n|sch|public",
+        "n|col|public.workout_exercises.workout_id",
+        "n|col|public.workouts.id",
+        "e|uniqueness|public.workouts.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "workout_exercises"
+      ],
+      "writes": [
+        "s|fk|public.workout_exercises.workout_exercises_exercise_id_exercises_id_fkey",
+        "n|fk|public.workout_exercises.workout_exercises_exercise_id_exercises_id_fkey",
+        "e|fk|public.workout_exercises.workout_exercises_exercise_id_exercises_id_fkey",
+        "n|con|public.workout_exercises.workout_exercises_exercise_id_exercises_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.workout_exercises",
+        "n|sch|public",
+        "n|tbl|public.exercises",
+        "n|sch|public",
+        "n|col|public.workout_exercises.exercise_id",
+        "n|col|public.exercises.id",
+        "e|uniqueness|public.exercises.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "workout_sets"
+      ],
+      "writes": [
+        "s|fk|public.workout_sets.workout_sets_workout_exercise_id_workout_exercises_id_fkey",
+        "n|fk|public.workout_sets.workout_sets_workout_exercise_id_workout_exercises_id_fkey",
+        "e|fk|public.workout_sets.workout_sets_workout_exercise_id_workout_exercises_id_fkey",
+        "n|con|public.workout_sets.workout_sets_workout_exercise_id_workout_exercises_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.workout_sets",
+        "n|sch|public",
+        "n|tbl|public.workout_exercises",
+        "n|sch|public",
+        "n|col|public.workout_sets.workout_exercise_id",
+        "n|col|public.workout_exercises.id",
+        "e|uniqueness|public.workout_exercises.id"
+      ]
+    }
+  ],
+  "deltas": [
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "exercises",
+        "isRlsEnabled": false,
+        "entityType": "tables"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "workouts",
+        "isRlsEnabled": false,
+        "entityType": "tables"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "workout_exercises",
+        "isRlsEnabled": false,
+        "entityType": "tables"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "workout_sets",
+        "isRlsEnabled": false,
+        "entityType": "tables"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "equipment",
+        "values": [
+          "none",
+          "barbell",
+          "dumbbell",
+          "kettlebell",
+          "machine",
+          "cable",
+          "resistance_band",
+          "smith_machine",
+          "pull_up_bar",
+          "treadmill",
+          "stationary_bike",
+          "rowing_machine",
+          "other"
+        ],
+        "entityType": "enums"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "exercise_category",
+        "values": [
+          "strength",
+          "cardio",
+          "flexibility",
+          "mobility",
+          "polymetrics"
+        ],
+        "entityType": "enums"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "muscle_involvement",
+        "values": [
+          "primary",
+          "secondary"
+        ],
+        "entityType": "enums"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "set_type",
+        "values": [
+          "warmup",
+          "working",
+          "cooldown",
+          "dropset",
+          "superset"
+        ],
+        "entityType": "enums"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "tracking_type",
+        "values": [
+          "weighted",
+          "bodyweight",
+          "weighted_bodyweight",
+          "assisted_bodyweight",
+          "duration",
+          "distance_duration",
+          "repetitions_duration",
+          "repetitions"
+        ],
+        "entityType": "enums"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "weight_unit",
+        "values": [
+          "kg",
+          "lb"
+        ],
+        "entityType": "enums"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "name": "workout_status",
+        "values": [
+          "in_progress",
+          "completed",
+          "canceled"
+        ],
+        "entityType": "enums"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "users",
+        "name": "preferred_weight_unit",
+        "type": "weight_unit",
+        "typeSchema": "public",
+        "notNull": true,
+        "dimensions": 0,
+        "default": "'kg'",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "exercises",
+        "name": "id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "gen_random_uuid()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "exercises",
+        "name": "name",
+        "type": "varchar(150)",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "exercises",
+        "name": "slug",
+        "type": "varchar(150)",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "exercises",
+        "name": "description",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "exercises",
+        "name": "category",
+        "type": "exercise_category",
+        "typeSchema": "public",
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "exercises",
+        "name": "tracking_type",
+        "type": "tracking_type",
+        "typeSchema": "public",
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "exercises",
+        "name": "equipment",
+        "type": "equipment",
+        "typeSchema": "public",
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "exercises",
+        "name": "instructions",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "exercises",
+        "name": "is_active",
+        "type": "boolean",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "true",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "exercises",
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "exercises",
+        "name": "updated_at",
+        "type": "timestamp with time zone",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workouts",
+        "name": "id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "gen_random_uuid()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workouts",
+        "name": "user_id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workouts",
+        "name": "title",
+        "type": "varchar(150)",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workouts",
+        "name": "notes",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workouts",
+        "name": "status",
+        "type": "workout_status",
+        "typeSchema": "public",
+        "notNull": true,
+        "dimensions": 0,
+        "default": "'in_progress'",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workouts",
+        "name": "started_at",
+        "type": "timestamp with time zone",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workouts",
+        "name": "completed_at",
+        "type": "timestamp with time zone",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workouts",
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workouts",
+        "name": "updated_at",
+        "type": "timestamp with time zone",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_exercises",
+        "name": "id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "gen_random_uuid()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_exercises",
+        "name": "workout_id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_exercises",
+        "name": "exercise_id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_exercises",
+        "name": "position",
+        "type": "integer",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_exercises",
+        "name": "notes",
+        "type": "text",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_exercises",
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_exercises",
+        "name": "updated_at",
+        "type": "timestamp with time zone",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "gen_random_uuid()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "workout_exercise_id",
+        "type": "uuid",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "set_number",
+        "type": "integer",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "set_type",
+        "type": "set_type",
+        "typeSchema": "public",
+        "notNull": true,
+        "dimensions": 0,
+        "default": "'working'",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "repetitions",
+        "type": "integer",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "weight_kg",
+        "type": "numeric(10,4)",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "assistance_kg",
+        "type": "numeric(10,4)",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "body_weight_kg",
+        "type": "numeric(10,4)",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "duration_seconds",
+        "type": "integer",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "distance_meters",
+        "type": "numeric(12,3)",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "rest_seconds",
+        "type": "integer",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "is_completed",
+        "type": "boolean",
+        "typeSchema": null,
+        "notNull": false,
+        "dimensions": 0,
+        "default": "false",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "updated_at",
+        "type": "timestamp with time zone",
+        "typeSchema": null,
+        "notNull": true,
+        "dimensions": 0,
+        "default": "now()",
+        "generated": null,
+        "identity": null,
+        "entityType": "columns"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "exercises",
+        "name": "exercise_slug_unique",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "slug",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": true,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "exercises",
+        "name": "exercise_category_idx",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "category",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": false,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "exercises",
+        "name": "exercise_equipment_idx",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "equipment",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": false,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workouts",
+        "name": "workouts_user_started_idx",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "user_id",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          },
+          {
+            "value": "started_at",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": false,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_exercises",
+        "name": "workout_exercises_position_unique",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "workout_id",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          },
+          {
+            "value": "position",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": true,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_exercises",
+        "name": "workout_exercises_exercise_idx",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "exercise_id",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": false,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "workout_sets_number_unique",
+        "nameExplicit": true,
+        "columns": [
+          {
+            "value": "workout_exercise_id",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          },
+          {
+            "value": "set_number",
+            "isExpression": false,
+            "asc": true,
+            "nullsFirst": false,
+            "opclass": null
+          }
+        ],
+        "isUnique": true,
+        "where": null,
+        "with": "",
+        "method": "btree",
+        "entityType": "indexes"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workouts",
+        "name": "workouts_user_id_users_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "user_id"
+        ],
+        "schemaTo": "public",
+        "tableTo": "users",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "CASCADE",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_exercises",
+        "name": "workout_exercises_workout_id_workouts_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "workout_id"
+        ],
+        "schemaTo": "public",
+        "tableTo": "workouts",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "CASCADE",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_exercises",
+        "name": "workout_exercises_exercise_id_exercises_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "exercise_id"
+        ],
+        "schemaTo": "public",
+        "tableTo": "exercises",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "RESTRICT",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "workout_sets_workout_exercise_id_workout_exercises_id_fkey",
+        "nameExplicit": false,
+        "columns": [
+          "workout_exercise_id"
+        ],
+        "schemaTo": "public",
+        "tableTo": "workout_exercises",
+        "columnsTo": [
+          "id"
+        ],
+        "onUpdate": "NO ACTION",
+        "onDelete": "CASCADE",
+        "entityType": "fks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "exercises",
+        "name": "exercises_pkey",
+        "columns": [
+          "id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workouts",
+        "name": "workouts_pkey",
+        "columns": [
+          "id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_exercises",
+        "name": "workout_exercises_pkey",
+        "columns": [
+          "id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "workout_sets_pkey",
+        "columns": [
+          "id"
+        ],
+        "nameExplicit": false,
+        "entityType": "pks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workouts",
+        "name": "workout_valid_completion_time",
+        "value": "\"completed_at\" IS NULL OR \"completed_at\" >= \"started_at\"",
+        "entityType": "checks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workouts",
+        "name": "workouts_valid_completion_status",
+        "value": "(\"status\" = 'completed'\n            AND \"completed_at\" IS NOT NULL)\n          OR\n          (\"status\" <> 'completed'\n            AND \"completed_at\" IS NULL)",
+        "entityType": "checks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_exercises",
+        "name": "workout_exercises_positive_position",
+        "value": "\"position\" > 0",
+        "entityType": "checks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "workout_sets_positive_set_number",
+        "value": "\"set_number\" > 0",
+        "entityType": "checks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "workout_sets_positive_repetitions",
+        "value": "\"repetitions\" > 0",
+        "entityType": "checks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "workout_sets_nonnegative_weight",
+        "value": "\"weight_kg\" >= 0",
+        "entityType": "checks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "workout_sets_nonnegative_assistance",
+        "value": "\"assistance_kg\" >= 0",
+        "entityType": "checks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "workout_sets_positive_body_weight",
+        "value": "\"body_weight_kg\" > 0",
+        "entityType": "checks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "workout_sets_positive_duration",
+        "value": "\"duration_seconds\" > 0",
+        "entityType": "checks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "workout_sets_positive_distance",
+        "value": "\"distance_meters\" > 0",
+        "entityType": "checks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "workout_sets_nonnegative_rest",
+        "value": "\"rest_seconds\" >= 0",
+        "entityType": "checks"
+      }
+    },
+    {
+      "op": "create",
+      "row": {
+        "schema": "public",
+        "table": "workout_sets",
+        "name": "workout_sets_completed_metrics",
+        "value": "NOT \"is_completed\"\n          OR \"repetitions\" IS NOT NULL\n          OR \"duration_seconds\" IS NOT NULL\n          OR \"distance_meters\" IS NOT NULL",
+        "entityType": "checks"
+      }
+    },
+    {
+      "op": "alter",
+      "key": "columns\u0000[\"public\",\"users\",\"updated_at\"]",
+      "set": {
+        "notNull": true
+      }
+    }
+  ]
+}
